@@ -17,7 +17,7 @@ export default function TypewriterText({ text, delay = 0, className = "" }) {
       setDisplayed(text.slice(0, i + 1));
       i++;
       if (i >= text.length) clearInterval(interval);
-    }, 28);
+    }, 35);
     return () => clearInterval(interval);
   }, [started, text]);
 
