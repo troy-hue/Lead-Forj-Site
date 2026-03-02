@@ -5,6 +5,8 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import GridBackground from '@/components/GridBackground';
+import PremiumDivider from '@/components/PremiumDivider';
 
 const LOGO_LIGHT = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69782029d21671f61db97b69/579dfcf3b_Lead_Forj_wordmark_dark.png";
 
@@ -65,7 +67,8 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-[#101214] text-[#F6F3EC]" style={{ fontFamily: "'Inter', sans-serif" }}>
+    <div className="min-h-screen bg-[#101214] text-[#F6F3EC] relative" style={{ fontFamily: "'Inter', sans-serif" }}>
+      <GridBackground />
 
       {/* Navigation */}
       <nav className="flex items-center justify-between px-6 md:px-12 lg:px-20 py-6">
@@ -81,13 +84,14 @@ export default function Contact() {
         </Link>
       </nav>
 
-      <section className="px-6 md:px-12 lg:px-20 py-20 max-w-2xl">
+      <section className="px-6 md:px-12 lg:px-20 py-20 max-w-2xl relative z-10">
         <h1 className="text-3xl md:text-4xl font-medium mb-4">
           Request a Conversation About Signal-Driven Email Outreach
         </h1>
-        <p className="text-[#8A8A8A] text-lg mb-10">
+        <p className="text-[#8A8A8A] text-lg mb-8">
           Tell us about your B2B outreach goals and challenges. We'll confirm fit before discussing scope.
         </p>
+        <PremiumDivider className="mb-10" />
 
         {submitted ? (
           <div className="bg-[#2B2B2B] p-8 rounded">
