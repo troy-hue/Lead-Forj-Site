@@ -110,13 +110,14 @@ export default function Home() {
           transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <motion.div whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
-            <Link
-              to={createPageUrl('Contact')}
-              className="group inline-flex items-center gap-2 bg-[#C9A24D] text-[#101214] px-6 py-3 font-medium hover:bg-[#b8933f] transition-all duration-300 rounded-md"
+            <button
+              data-cal-link="lead-forj/discovery-call"
+              data-cal-config='{"layout":"month_view"}'
+              className="group inline-flex items-center gap-2 bg-[#C9A24D] text-[#101214] px-6 py-3 font-medium hover:bg-[#b8933f] transition-all duration-300 rounded-md cursor-pointer"
             >
               Request a conversation
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </button>
           </motion.div>
           <p className="text-sm text-[#8A8A8A] mt-4">
             Built for consultants and B2B service firms where reputation and signal quality matter.
@@ -476,13 +477,14 @@ export default function Home() {
             If there isn't, we'll tell you.
           </p>
           <motion.div whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }}>
-            <Link
-              to={createPageUrl('Contact')}
-              className="group inline-flex items-center gap-2 bg-[#C9A24D] text-[#101214] px-6 py-3 font-medium hover:bg-[#b8933f] transition-all duration-300 rounded-md"
+            <button
+              data-cal-link="lead-forj/discovery-call"
+              data-cal-config='{"layout":"month_view"}'
+              className="group inline-flex items-center gap-2 bg-[#C9A24D] text-[#101214] px-6 py-3 font-medium hover:bg-[#b8933f] transition-all duration-300 rounded-md cursor-pointer"
             >
               Request a conversation
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </button>
           </motion.div>
           <p className="text-sm text-[#8A8A8A] mt-4 font-mono">
             We'll confirm fit before discussing scope.
