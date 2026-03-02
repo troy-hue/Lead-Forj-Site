@@ -16,6 +16,8 @@ export default function Contact() {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     // Set page-specific SEO meta tags
@@ -37,10 +39,29 @@ export default function Contact() {
     }
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In production, this would send to a backend
-    setSubmitted(true);
+    setSending(true);
+    setError(null);
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/info@leadforj.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
+          _subject: `New inquiry from ${formData.name}`,
+        }),
+      });
+      if (!res.ok) throw new Error('Failed to send');
+      setSubmitted(true);
+    } catch {
+      setError('Something went wrong. Please try again or email us directly at info@leadforj.com');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -119,12 +140,16 @@ export default function Contact() {
                 placeholder="Tell us about your outreach goals and current challenges..."
               />
             </div>
+            {error && (
+              <p className="text-red-400 text-sm">{error}</p>
+            )}
             <Button
               type="submit"
-              className="bg-[#C9A24D] text-[#101214] hover:bg-[#b8933f] px-6 py-3 h-auto font-medium"
+              disabled={sending}
+              className="bg-[#C9A24D] text-[#101214] hover:bg-[#b8933f] px-6 py-3 h-auto font-medium disabled:opacity-50"
             >
-              Send message
-              <ArrowRight className="w-4 h-4 ml-2" />
+              {sending ? 'Sending...' : 'Send message'}
+              {!sending && <ArrowRight className="w-4 h-4 ml-2" />}
             </Button>
           </form>
         )}
