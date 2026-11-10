@@ -93,7 +93,7 @@ export default function Home() {
             <DataLabel>Signal-driven outreach</DataLabel>
           </div>
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-medium leading-tight mb-6">
-            <TypewriterText text="Signal-driven email outreach for fewer, better conversations" delay={0.4} />
+            <TypewriterText text="Signal-driven email outreach, with LinkedIn alongside it, for fewer, better conversations" delay={0.4} />
           </h1>
         </motion.div>
         <motion.p
